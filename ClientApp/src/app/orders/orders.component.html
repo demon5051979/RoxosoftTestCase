@@ -1,0 +1,64 @@
+<div class="flex-container">
+  <div class="left-side">
+    <div class="header">
+      <div class="cell">Number</div>
+      <div class="cell-40">Agent</div>
+      <div class="cell">Date</div>
+    </div>
+    <div class="orders-panel">
+      <div class="order" *ngFor="let order of orders" (click)="select(order.id)">
+        <div [ngClass]="{
+            'status-in-progress': order.statusId==1,
+            'status-complete': order.statusId==2 }">
+        </div>
+        <div class="cell">{{order.id}}</div>
+        <div class="cell-40">{{order.agentName}}</div>
+        <div class="cell">{{order.getOrderDate()}}</div>
+      </div>
+    </div>
+    <div class="order-footer">
+      <div class="row">
+        <div class="status-in-progress"></div>
+        <div>In progress</div>
+      </div>
+      <div class="row">
+        <div class="status-complete"></div>
+        <div>Complete</div>
+      </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="order-total" *ngIf="selectedOrder">
+      <div class="row">Number: {{selectedOrder.id}}</div>
+      <div class="row">Date: {{selectedOrder.getOrderDate()}}</div>
+      <div class="row">
+        <div>Status:&nbsp;&nbsp;&nbsp;</div>
+        <div [ngClass]="{
+          'status-in-progress': selectedOrder.statusId==1,
+          'status-complete': selectedOrder.statusId==2 }">
+        </div>{{selectedOrder.status}}</div>
+      <br>
+      <div class="row">Total: {{totalAmount}}</div>
+    </div>  
+    <div class="header" *ngIf="selectedOrder">
+      <div class="cell-40">Product</div>
+      <div class="cell">Price</div>
+      <div class="cell">Quantity</div>
+      <div class="cell">Amount</div>
+    </div>
+    <div class="products">
+      <div class="product" *ngFor="let product of products">
+        <div class="cell-40">{{product.productName}}</div>
+        <div class="cell">{{product.price}}</div>
+        <div class="cell">{{product.quantity}}</div>
+        <div class="cell">{{product.amount}}</div>
+      </div>
+    </div>
+    <div class="product-footer" *ngIf="selectedOrder">
+      <div class="cell-40">Total</div>
+      <div class="cell"></div>
+      <div class="cell">{{totalQuantity}}</div>
+      <div class="cell">{{totalAmount}}</div>
+    </div>
+  </div>
+</div>

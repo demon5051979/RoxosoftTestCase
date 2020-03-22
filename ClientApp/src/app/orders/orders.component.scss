@@ -1,0 +1,105 @@
+.flex-container {
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-flow: row;
+    height: 70vh;
+}
+
+.left-side {
+    border-right: solid 1px lightgrey;
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+}
+
+.right-side {
+    width: 60%;
+    display: flex;
+    flex-flow: column;
+}
+
+.header {
+    margin: 10px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    border-bottom: solid 1px lightgrey;
+}
+
+.order-total {
+    margin: 10px;
+    border-bottom: solid 1px lightgrey;
+}
+
+.orders-panel {
+    flex: 1;
+}
+
+.order {
+    margin: 10px;
+    display: flex;
+    flex-flow: row;
+}
+
+.order:hover {
+    background: lightblue;
+    cursor: pointer;
+}
+
+.order-footer {
+    border-top: solid 1px lightgrey;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+    margin: 10px;
+}
+
+.products {
+    flex: 1;
+}
+
+.product {
+    margin: 10px;
+    display: flex;
+    flex-flow: row;
+}
+
+.product:hover {
+    background: lightblue;
+    cursor: pointer;
+}
+
+.product-footer {
+    border-top: solid 1px lightgrey;
+    margin: 10px;
+    display: flex;
+    flex-flow: row;    
+}
+
+.cell {
+    flex: 1;
+}
+
+.cell-40 {
+    flex: 0 0 50%;
+}
+
+.status {
+	width: 10px;
+	height: 10px;
+    margin: 7px 7px 5px 0px
+}
+
+.status-in-progress {
+    @extend .status;
+    background-color: magenta;
+}
+
+.status-complete {
+    @extend .status;
+    background-color: green
+}
